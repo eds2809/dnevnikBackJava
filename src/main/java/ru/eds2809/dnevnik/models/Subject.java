@@ -1,5 +1,8 @@
 package ru.eds2809.dnevnik.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.BatchSize;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,6 +14,8 @@ public class Subject {
     private String name;
 
     @Transient
+    @JsonIgnore
+    @BatchSize(size = 1000)
     private List<Appraisal> appraisals;
 
     public Subject() {

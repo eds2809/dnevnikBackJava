@@ -3,14 +3,6 @@ package ru.eds2809.dnevnik;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import ru.eds2809.dnevnik.models.Appraisal;
-import ru.eds2809.dnevnik.models.ClassRoom;
-import ru.eds2809.dnevnik.models.Pupil;
-import ru.eds2809.dnevnik.models.Subject;
-import ru.eds2809.dnevnik.repositories.AppraisalRepository;
-import ru.eds2809.dnevnik.repositories.PupilRepository;
-
-import java.util.Map;
 
 @SpringBootApplication
 public class DnevnikApplication {

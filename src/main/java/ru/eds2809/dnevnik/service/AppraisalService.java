@@ -6,7 +6,7 @@ import ru.eds2809.dnevnik.models.Subject;
 import java.util.List;
 
 public interface AppraisalService {
-    List<Subject> findAllAppraisalByPupilId(Long pupilId);
+    List<Appraisal> findAllAppraisalByUserIdAndSubjectId(long userId, long subjectId);
 
     Appraisal save(Appraisal appraisal);
 

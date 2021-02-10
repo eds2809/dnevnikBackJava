@@ -5,10 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
-public class UserRole {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
-    private String name;
+public enum UserRole {
+    PUPIL_ROLE, TEACHER_ROLE, ADMIN_ROLE
 }

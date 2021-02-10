@@ -10,10 +10,12 @@ import java.util.List;
 
 @Repository
 public interface AppraisalRepository extends CrudRepository<Appraisal, Long> {
-    List<Appraisal> findAllByPupilId(Long pupilId);
+    List<Appraisal> findAllByUserId(Long userId);
 
     @Modifying
     @Query("delete from Appraisal a where a.id = ?1")
     @Override
     void deleteById(Long id);
+
+    List<Appraisal> findAllByUserIdAndSubjectId(Long userId, Long subjectId);
 }

@@ -3,7 +3,7 @@ package ru.eds2809.dnevnik.controllers;
 
 import org.springframework.web.bind.annotation.*;
 import ru.eds2809.dnevnik.converterToDTO.ConverterToDTO;
-import ru.eds2809.dnevnik.dto.SubjectDTO;
+import ru.eds2809.dnevnik.dto.AppraisalDTO;
 import ru.eds2809.dnevnik.models.Appraisal;
 import ru.eds2809.dnevnik.service.AppraisalService;
 
@@ -19,11 +19,6 @@ public class AppraisalRestController {
     }
 
 
-    @GetMapping("/{pupilId}")
-    public List<SubjectDTO> getAllClassrooms(@PathVariable Long pupilId) {
-        return ConverterToDTO.convertSubjectList(appraisalService.findAllAppraisalByPupilId(pupilId));
-    }
-
     @PutMapping("/")
     public Appraisal saveAppraisal(@RequestBody Appraisal appraisal) {
         return appraisalService.save(appraisal);
@@ -32,5 +27,10 @@ public class AppraisalRestController {
     @DeleteMapping("/{appraisalId}")
     public void deleteAppraisal(@PathVariable long appraisalId){
         appraisalService.delete(appraisalId);
+    }
+
+    @GetMapping("/{userid}/{subjectId}")
+    public List<AppraisalDTO> getAllAppraisalByUserIdAndSubjectId(@PathVariable long userid, @PathVariable long subjectId){
+        return ConverterToDTO.toAppraisalDTO(appraisalService.findAllAppraisalByUserIdAndSubjectId(userid,subjectId));
     }
 }

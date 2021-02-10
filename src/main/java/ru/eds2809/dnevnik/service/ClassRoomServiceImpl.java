@@ -2,7 +2,7 @@ package ru.eds2809.dnevnik.service;
 
 import org.springframework.stereotype.Service;
 import ru.eds2809.dnevnik.models.ClassRoom;
-import ru.eds2809.dnevnik.models.Teacher;
+import ru.eds2809.dnevnik.models.User;
 import ru.eds2809.dnevnik.repositories.ClassRoomRepository;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class ClassRoomServiceImpl implements ClassRoomService {
     }
 
     @Override
-    public void addClassRoom(String name, Teacher classroomSupervisor) {
+    public void addClassRoom(String name, User classroomSupervisor) {
         ClassRoom classRoom = new ClassRoom(name, classroomSupervisor);
         classRoomRepository.save(classRoom);
     }
