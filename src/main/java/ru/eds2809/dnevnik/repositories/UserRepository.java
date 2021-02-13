@@ -11,5 +11,6 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
     Optional<User> findUserByLoginAndPassword(String login, String password);
+
     List<User> findAllByRole(UserRole userRole);
 }

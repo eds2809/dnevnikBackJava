@@ -35,7 +35,7 @@ public class UserRestController {
     }
 
     @GetMapping("/all")
-    public List<User> getAllUsers(){
+    public List<User> getAllUsers() {
         return userRepository.findAllByRole(UserRole.PUPIL_ROLE);
     }
 }

@@ -14,6 +14,9 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 public class User {
+    @ManyToMany
+    @BatchSize(size = 1000)
+    List<ClassRoom> classRooms;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,17 +27,11 @@ public class User {
     private String password;
     @Enumerated(EnumType.STRING)
     private UserRole role;
-
     @OneToOne
     private ClassRoom classRoom;
-
     @ManyToMany
     @BatchSize(size = 1000)
     private List<Subject> subjects = new ArrayList<>(0);
-
-    @ManyToMany
-    @BatchSize(size = 1000)
-    List<ClassRoom> classRooms;
 
     public User() {
     }

@@ -2,14 +2,14 @@ package ru.eds2809.dnevnik.service;
 
 import org.springframework.stereotype.Service;
 import ru.eds2809.dnevnik.models.Appraisal;
-import ru.eds2809.dnevnik.models.Subject;
 import ru.eds2809.dnevnik.repositories.AppraisalRepository;
 import ru.eds2809.dnevnik.repositories.SubjectRepository;
 
-import java.util.*;
+import java.util.Date;
+import java.util.List;
 
 @Service
-public class AppraisalServiceImpl implements AppraisalService{
+public class AppraisalServiceImpl implements AppraisalService {
 
     private final AppraisalRepository appraisalRepository;
     private final SubjectRepository subjectRepository;
@@ -26,15 +26,15 @@ public class AppraisalServiceImpl implements AppraisalService{
 
     @Override
     public Appraisal save(Appraisal appraisal) {
-        if (appraisal.getScore() < 2 || appraisal.getScore() > 5){
+        if (appraisal.getScore() < 2 || appraisal.getScore() > 5) {
             throw new RuntimeException("");
         }
 
-        if (appraisal.getSubjectId() <= 0){
+        if (appraisal.getSubjectId() <= 0) {
             throw new RuntimeException("");
         }
 
-        if (appraisal.getUserId() <= 0){
+        if (appraisal.getUserId() <= 0) {
             throw new RuntimeException("");
         }
 
@@ -45,10 +45,12 @@ public class AppraisalServiceImpl implements AppraisalService{
     }
 
     @Override
-    public void delete(long appraisalId) {
+    public boolean delete(long appraisalId) {
         try {
             appraisalRepository.deleteById(appraisalId);
-        } catch (Exception e){
+            return true;
+        } catch (Exception e) {
+            return false;
         }
     }
 }

@@ -5,16 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Utils {
-    private Utils() {
-
-    }
-
-    public static String convertDate(Date currentDate) {
-        return new SimpleDateFormat("dd MMMM").format(currentDate);
-    }
-
-
-    private static DateFormatSymbols myDateFormatSymbols = new DateFormatSymbols() {
+    private static final DateFormatSymbols myDateFormatSymbols = new DateFormatSymbols() {
 
         @Override
         public String[] getMonths() {
@@ -23,4 +14,12 @@ public class Utils {
         }
 
     };
+
+    private Utils() {
+
+    }
+
+    public static String convertDate(Date currentDate) {
+        return new SimpleDateFormat("dd MMMM").format(currentDate);
+    }
 }

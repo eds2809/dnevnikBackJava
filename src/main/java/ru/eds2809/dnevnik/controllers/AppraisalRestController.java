@@ -19,18 +19,23 @@ public class AppraisalRestController {
     }
 
 
-    @PutMapping("/")
-    public Appraisal saveAppraisal(@RequestBody Appraisal appraisal) {
-        return appraisalService.save(appraisal);
+    @PostMapping("/")
+    public AppraisalDTO saveAppraisal(@RequestBody Appraisal appraisal) {
+        return ConverterToDTO.toAppraisalDTO(appraisalService.save(appraisal));
     }
 
     @DeleteMapping("/{appraisalId}")
-    public void deleteAppraisal(@PathVariable long appraisalId){
+    public void deleteAppraisal(@PathVariable long appraisalId) {
         appraisalService.delete(appraisalId);
     }
 
     @GetMapping("/{userid}/{subjectId}")
-    public List<AppraisalDTO> getAllAppraisalByUserIdAndSubjectId(@PathVariable long userid, @PathVariable long subjectId){
-        return ConverterToDTO.toAppraisalDTO(appraisalService.findAllAppraisalByUserIdAndSubjectId(userid,subjectId));
+    public List<AppraisalDTO> getAllAppraisalByUserIdAndSubjectId(@PathVariable long userid, @PathVariable long subjectId) {
+        return ConverterToDTO.toAppraisalDTO(appraisalService.findAllAppraisalByUserIdAndSubjectId(userid, subjectId));
+    }
+
+    @DeleteMapping("/{id}/")
+    public boolean delete(@PathVariable long id) {
+        return appraisalService.delete(id);
     }
 }

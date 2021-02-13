@@ -2,10 +2,11 @@ package ru.eds2809.dnevnik.models;
 
 
 import lombok.Data;
-import org.hibernate.annotations.BatchSize;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Data
 @Entity

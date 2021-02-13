@@ -14,4 +14,6 @@ public class AppraisalDTO {
     private Long score;
     private String evaluationDateString;
     private Date updateDate;
+
+
 }

@@ -1,7 +1,6 @@
 package ru.eds2809.dnevnik.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.JsonNode;
 import lombok.Data;
 
 import javax.persistence.*;

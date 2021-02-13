@@ -21,4 +21,15 @@ public class ConverterToDTO {
                         .build())
                 .collect(Collectors.toList());
     }
+
+    public static AppraisalDTO toAppraisalDTO(Appraisal appraisal) {
+        return AppraisalDTO.builder()
+                .id(appraisal.getId())
+                .score(appraisal.getScore())
+                .updateDate(appraisal.getUpdateDate())
+                .evaluationDateString(Utils.convertDate(appraisal.getEvaluationDate()))
+                .subjectId(appraisal.getSubjectId())
+                .userId(appraisal.getUserId())
+                .build();
+    }
 }
